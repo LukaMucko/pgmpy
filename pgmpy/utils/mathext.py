@@ -82,9 +82,6 @@ def _adjusted_weights(weights):
     if abs(error) > 1e-3:
         raise ValueError("The probability values do not sum to 1.")
     elif error != 0:
-        logger.warning(
-            f"Probability values don't exactly sum to 1. Differ by: {error}. Adjusting values."
-        )
         weights[compat_fns.argmax(weights)] += error
 
     return weights
